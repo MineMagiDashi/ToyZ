@@ -104,7 +104,7 @@ surface_material_override/0 = ExtResource("3_0byxd")
 shape = SubResource("BoxShape3D_gbmuv")
 
 [node name="X" type="StaticBody3D" parent="Map/XYZBlocks"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 2.60905, -4.37114e-07)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 10, 1, -4.37114e-07)
 metadata/_edit_group_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Map/XYZBlocks/X"]
