@@ -1,0 +1,100 @@
+[gd_scene load_steps=11 format=3 uid="uid://nrae5fxia1ew"]
+
+[ext_resource type="PackedScene" uid="uid://b7qjwfq642u6r" path="res://charactertest1.tscn" id="1_lgmxp"]
+[ext_resource type="Material" uid="uid://bj675kjomh5iv" path="res://Materials/negativex.tres" id="2_3851h"]
+[ext_resource type="Material" uid="uid://by5xgvpo11ror" path="res://Materials/negativez.tres" id="2_ievki"]
+[ext_resource type="Material" uid="uid://bilfaenosbbqe" path="res://Materials/ACTUALLYRED.tres" id="2_l27d5"]
+[ext_resource type="Material" uid="uid://cx5jtp6e6wq5h" path="res://Materials/BLUE.tres" id="3_2tp7b"]
+[ext_resource type="Material" uid="uid://2ufcdo2atl5h" path="res://Materials/GREEN.tres" id="3_xfwws"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7bhp5"]
+size = Vector3(20, 1, 20)
+
+[sub_resource type="BoxMesh" id="BoxMesh_bghai"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_58jf2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ww82q"]
+
+[node name="World" type="Node3D"]
+
+[node name="Map" type="Node3D" parent="."]
+
+[node name="Floor" type="StaticBody3D" parent="Map"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/Floor"]
+shape = SubResource("BoxShape3D_7bhp5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Map/Floor"]
+transform = Transform3D(20, 0, 0, 0, 1, 0, 0, 0, 20, 0, 0, 0)
+mesh = SubResource("BoxMesh_bghai")
+
+[node name="XYZBlocks" type="Node3D" parent="Map"]
+
+[node name="XBlock" type="MeshInstance3D" parent="Map/XYZBlocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 1.044, 0)
+mesh = SubResource("BoxMesh_58jf2")
+skeleton = NodePath("StaticBody3D")
+surface_material_override/0 = ExtResource("2_l27d5")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/XYZBlocks/XBlock"]
+rotation_edit_mode = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/XYZBlocks/XBlock/StaticBody3D"]
+shape = SubResource("BoxShape3D_ww82q")
+
+[node name="NegXBlock" type="MeshInstance3D" parent="Map/XYZBlocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 1.044, 0)
+mesh = SubResource("BoxMesh_58jf2")
+skeleton = NodePath("StaticBody3D")
+surface_material_override/0 = ExtResource("2_3851h")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/XYZBlocks/NegXBlock"]
+rotation_edit_mode = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/XYZBlocks/NegXBlock/StaticBody3D"]
+shape = SubResource("BoxShape3D_ww82q")
+
+[node name="NegZBlock" type="MeshInstance3D" parent="Map/XYZBlocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.195, -10)
+mesh = SubResource("BoxMesh_58jf2")
+skeleton = NodePath("../ZBlock/StaticBody3D")
+surface_material_override/0 = ExtResource("2_ievki")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/XYZBlocks/NegZBlock"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/XYZBlocks/NegZBlock/StaticBody3D"]
+shape = SubResource("BoxShape3D_ww82q")
+
+[node name="ZBlock" type="MeshInstance3D" parent="Map/XYZBlocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.195, 10)
+mesh = SubResource("BoxMesh_58jf2")
+skeleton = NodePath("StaticBody3D")
+surface_material_override/0 = ExtResource("3_2tp7b")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/XYZBlocks/ZBlock"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/XYZBlocks/ZBlock/StaticBody3D"]
+shape = SubResource("BoxShape3D_ww82q")
+
+[node name="YBlock" type="MeshInstance3D" parent="Map/XYZBlocks"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, 0)
+mesh = SubResource("BoxMesh_58jf2")
+skeleton = NodePath("StaticBody3D")
+surface_material_override/0 = ExtResource("3_xfwws")
+metadata/_edit_group_ = true
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Map/XYZBlocks/YBlock"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Map/XYZBlocks/YBlock/StaticBody3D"]
+shape = SubResource("BoxShape3D_ww82q")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.937591, 0.315864, 0.145439, 0.19838, 0.14235, 0.969733, 0.285601, 0.938065, -0.196127, 0.239732, 6.36388, -1.7543)
+
+[node name="Player" parent="." instance=ExtResource("1_lgmxp")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.68212, 0)

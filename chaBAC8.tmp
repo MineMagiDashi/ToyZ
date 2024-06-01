@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=3 uid="uid://b7qjwfq642u6r"]
+
+[ext_resource type="Script" path="res://PlayerScr.gd" id="1_2afjm"]
+[ext_resource type="PackedScene" uid="uid://cbm3lyar2no3v" path="res://Models/Y Bot.fbx" id="2_gkhu2"]
+[ext_resource type="Material" uid="uid://clmvctq8hrrax" path="res://Materials/Transparent1.tres" id="2_lsbwa"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8yt0g"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gpte4"]
+size = Vector3(0.7, 1.75, 0.7)
+
+[node name="Player" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+script = ExtResource("1_2afjm")
+
+[node name="CollisionMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.7, 0, 0, 0, 1.75, 0, 0, 0, 0.7, 0, 0, 0)
+mesh = SubResource("BoxMesh_8yt0g")
+surface_material_override/0 = ExtResource("2_lsbwa")
+
+[node name="CollisionBox" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_gpte4")
+
+[node name="Y Bot" parent="." instance=ExtResource("2_gkhu2")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.902718, 0)
+
+[node name="CameraPivot" type="Node3D" parent="."]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot"]
+transform = Transform3D(0.707107, 0.5, -0.5, 0, 0.707107, 0.707107, 0.707107, -0.5, 0.5, -4, 5, 4)
