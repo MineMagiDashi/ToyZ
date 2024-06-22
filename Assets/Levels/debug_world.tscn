@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c87q4ucso72ig"]
+[gd_scene load_steps=24 format=3 uid="uid://c87q4ucso72ig"]
 
 [ext_resource type="Material" uid="uid://by5xgvpo11ror" path="res://Assets/Materials/negativez.tres" id="1_efyyy"]
 [ext_resource type="Material" uid="uid://cx5jtp6e6wq5h" path="res://Assets/Materials/BLUE.tres" id="2_6f8mc"]
@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://Assets/Entities/box.gd" id="5_16xfp"]
 [ext_resource type="PackedScene" uid="uid://b7qjwfq642u6r" path="res://Assets/Player/player_char.tscn" id="5_fs5oq"]
 [ext_resource type="PackedScene" uid="uid://8wa8whthd4fs" path="res://Assets/Entities/Dummy/test_dummy.tscn" id="6_nq502"]
+[ext_resource type="Script" path="res://Assets/Entities/Entity Components/attack_component.gd" id="8_q33k1"]
+[ext_resource type="Script" path="res://Assets/Entities/Entity Components/hp_component.gd" id="9_d3w7o"]
+[ext_resource type="Script" path="res://Assets/Entities/Entity Components/hitbox_component.gd" id="10_tub1t"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_2yg0b"]
 
@@ -310,3 +313,12 @@ mesh = SubResource("SphereMesh_rtcpb")
 [node name="Dummy" parent="." node_paths=PackedStringArray("movement_target") instance=ExtResource("6_nq502")]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 5.91423, 1.15004, -4.59795)
 movement_target = NodePath("../TargetPosition")
+
+[node name="AttackComponent" type="Node3D" parent="Dummy"]
+script = ExtResource("8_q33k1")
+
+[node name="HPComponent" type="Node3D" parent="Dummy"]
+script = ExtResource("9_d3w7o")
+
+[node name="HitboxComponent" type="Area3D" parent="Dummy"]
+script = ExtResource("10_tub1t")
