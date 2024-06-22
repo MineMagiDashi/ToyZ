@@ -1,0 +1,83 @@
+[gd_scene load_steps=9 format=3 uid="uid://bm8upjpqp7v27"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/on_hitbox_hit.gd" id="1_b6xao"]
+[ext_resource type="Script" path="res://Assets/Scripts/punchanim_handler.gd" id="1_u2se8"]
+[ext_resource type="Material" uid="uid://clmvctq8hrrax" path="res://Assets/Materials/Transparent1.tres" id="2_d7jea"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3ajat"]
+size = Vector3(1, 1.75, 2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_8yt0g"]
+size = Vector3(1, 1.75, 2)
+
+[sub_resource type="Animation" id="Animation_xqtl5"]
+resource_name = "Hit"
+length = 0.1
+step = 0.01
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0.4011, 0, 0, 0.1, 1, -0.557242, 0, -1.32872)
+tracks/1/type = "scale_3d"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = PackedFloat32Array(0.05, 1, 1, 1, 1, 0.1, 1, 0.5, 1, 0.5)
+tracks/2/type = "rotation_3d"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = PackedFloat32Array(0, 1, 0, 0.0491722, 0, 0.99879, 0.1, 1, 0, 0.599946, 0, 0.800041)
+
+[sub_resource type="Animation" id="Animation_xfo8u"]
+length = 0.001
+tracks/0/type = "position_3d"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i6us8"]
+_data = {
+"Hit": SubResource("Animation_xqtl5"),
+"RESET": SubResource("Animation_xfo8u")
+}
+
+[node name="Root" type="Node3D"]
+script = ExtResource("1_u2se8")
+
+[node name="ATK_HitBox" type="Area3D" parent="."]
+transform = Transform3D(0.995164, 0, 0.0982255, 0, 1, 0, -0.0982255, 0, 0.995164, 0, 0, 0)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_b6xao")
+metadata/_edit_group_ = true
+
+[node name="HitBoxCol" type="CollisionShape3D" parent="ATK_HitBox"]
+shape = SubResource("BoxShape3D_3ajat")
+
+[node name="ColVisual" type="MeshInstance3D" parent="ATK_HitBox/HitBoxCol"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.251765)
+mesh = SubResource("BoxMesh_8yt0g")
+surface_material_override/0 = ExtResource("2_d7jea")
+
+[node name="AttackAnim" type="AnimationPlayer" parent="ATK_HitBox"]
+libraries = {
+"": SubResource("AnimationLibrary_i6us8")
+}
+
+[node name="AttackHBExistTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="area_entered" from="ATK_HitBox" to="ATK_HitBox" method="_on_area_entered"]
+[connection signal="timeout" from="AttackHBExistTimer" to="ATK_HitBox" method="_on_attack_hb_exist_timer_timeout"]
