@@ -1,8 +1,6 @@
 extends CharacterBody3D
 
 @export_category("General")
-@export var maxHP: int = 50
-@export var health: int = maxHP
 @export var speed: float = 5.0
 @export var accel: float = 3
 

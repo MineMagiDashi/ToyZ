@@ -3,7 +3,7 @@ class_name HealthBarComponent
 
 @onready var displayBar = $SubViewport/TextureProgressBar
 
-@onready var entity = $".."
+@export var healthcomponent : HealthComponent
 
 #Colors for health bars. Need to divide by 255, as Godot uses RAW by default instead of RGB or HSV.
 var green = Color(30,255,45,255)/255.0
@@ -16,7 +16,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func update_health():
 	#Find the health percentage
-	var spritePercentage = entity.health * 100.0 / entity.maxHP
+	var spritePercentage = healthcomponent.health * 100.0 / healthcomponent.MAX_HEALTH
 	
 	#Create smoothing tween.
 	var tween = create_tween()
