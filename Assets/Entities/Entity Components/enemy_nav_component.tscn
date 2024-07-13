@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://fux80mvprg8m"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/navigation_component.gd" id="1_3clq5"]
+
+[node name="EnemyNavComponent" type="Node3D"]
+script = ExtResource("1_3clq5")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_desired_distance = 0.5
+target_desired_distance = 0.5
+height = 2.0
+debug_enabled = true

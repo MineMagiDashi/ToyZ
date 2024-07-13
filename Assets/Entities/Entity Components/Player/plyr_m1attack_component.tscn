@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://by8om40cat74y"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/plyr_m1attack_component.gd" id="1_845yy"]
+
+[node name="PlyrM1Component" type="Node3D"]
+script = ExtResource("1_845yy")
+
+[node name="AttackComboTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="DashAtkWindowTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="AttackComboTimer" to="." method="_on_attack_combo_timer_timeout"]
+[connection signal="timeout" from="DashAtkWindowTimer" to="." method="_on_dash_atk_input_timer_timeout"]

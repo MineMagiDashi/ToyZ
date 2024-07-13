@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://8chrcq4tvcxu"]
+
+[ext_resource type="Script" path="res://Assets/Scripts/plyr_utility_component.gd" id="1_v1bfp"]
+
+[node name="PlyrUtilityComponent" type="Node3D"]
+script = ExtResource("1_v1bfp")
+
+[node name="UtilityUseTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="UtilityCooldownTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="UtilityUseTimer" to="." method="_on_utility_use_timer_timeout"]
+[connection signal="timeout" from="UtilityCooldownTimer" to="." method="_on_utility_cooldown_timer_timeout"]
