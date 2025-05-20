@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bj8tfqpx3l0f6"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/punchanim_handler.gd" id="1_oruax"]
-[ext_resource type="Script" path="res://Assets/Scripts/on_hitbox_hit.gd" id="2_ederb"]
+[ext_resource type="Script" uid="uid://c8vmsmxiumhby" path="res://Assets/Scripts/punchanim_handler.gd" id="1_oruax"]
+[ext_resource type="Script" uid="uid://cwmf8kx2ls8s4" path="res://Assets/Scripts/on_hitbox_hit.gd" id="2_ederb"]
 [ext_resource type="Material" uid="uid://clmvctq8hrrax" path="res://Assets/Materials/Transparent1.tres" id="3_6fvpf"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3ajat"]
@@ -48,8 +48,8 @@ tracks/0/keys = PackedFloat32Array(0, 1, 0, 0, 0)
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i6us8"]
 _data = {
-"Hit": SubResource("Animation_xqtl5"),
-"RESET": SubResource("Animation_xfo8u")
+&"Hit": SubResource("Animation_xqtl5"),
+&"RESET": SubResource("Animation_xfo8u")
 }
 
 [node name="Root" type="Node3D"]

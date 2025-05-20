@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://bghdp6rq76vam"]
 
-[ext_resource type="Script" path="res://Assets/Entities/Player/plyr_health_component.gd" id="1_vuges"]
+[ext_resource type="Script" uid="uid://8cagrt6ysagf" path="res://Assets/Entities/Player/plyr_health_component.gd" id="1_vuges"]
 
 [node name="PlyrHealthComponent" type="Node3D"]
 script = ExtResource("1_vuges")

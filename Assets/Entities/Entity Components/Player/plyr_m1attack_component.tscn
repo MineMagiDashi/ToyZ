@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://by8om40cat74y"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/plyr_m1attack_component.gd" id="1_845yy"]
+[ext_resource type="Script" uid="uid://0q7p7qrha404" path="res://Assets/Scripts/plyr_m1attack_component.gd" id="1_845yy"]
 
 [node name="PlyrM1Component" type="Node3D"]
 script = ExtResource("1_845yy")

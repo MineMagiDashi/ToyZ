@@ -4,7 +4,7 @@
 [ext_resource type="Material" uid="uid://cx5jtp6e6wq5h" path="res://Assets/Materials/BLUE.tres" id="2_6f8mc"]
 [ext_resource type="Material" uid="uid://bj675kjomh5iv" path="res://Assets/Materials/negativex.tres" id="3_0byxd"]
 [ext_resource type="Material" uid="uid://bilfaenosbbqe" path="res://Assets/Materials/ACTUALLYRED.tres" id="4_dk63x"]
-[ext_resource type="Script" path="res://Assets/Scripts/box.gd" id="5_16xfp"]
+[ext_resource type="Script" uid="uid://bf1hd7ll3f5r0" path="res://Assets/Scripts/box.gd" id="5_16xfp"]
 [ext_resource type="PackedScene" uid="uid://b7qjwfq642u6r" path="res://Assets/Entities/Player/player_char.tscn" id="5_fs5oq"]
 [ext_resource type="PackedScene" uid="uid://8wa8whthd4fs" path="res://Assets/Entities/Dummy/test_dummy.tscn" id="6_nq502"]
 
@@ -294,9 +294,6 @@ shape = SubResource("BoxShape3D_gbmuv")
 
 [node name="Player" parent="." instance=ExtResource("5_fs5oq")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13157, 0)
-speed = 5.0
-jump_velocity = 4.5
-transitionSpeed = 0.1
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -0.69809, 0.71601, 0, -0.71601, -0.69809, 0, 7.17986, -5.57637)

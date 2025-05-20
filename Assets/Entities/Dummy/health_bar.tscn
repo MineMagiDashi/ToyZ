@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://reegp86lpkmf"]
 
-[ext_resource type="Script" path="res://Assets/Scripts/hp_display.gd" id="1_5ltwj"]
+[ext_resource type="Script" uid="uid://djwuotfboivnp" path="res://Assets/Scripts/hp_display.gd" id="1_5ltwj"]
 [ext_resource type="Texture2D" uid="uid://2sf2ovbdm8lc" path="res://Assets/Visuals/UI/Health.png" id="2_kqwko"]
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_wwbwo"]
